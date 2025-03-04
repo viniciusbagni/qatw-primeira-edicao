@@ -2,24 +2,14 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Node.js Deps') {
             steps {
-                echo 'Hello World'
+                sh 'npm install'
             }
         }
-          stage('Hello') {
+          stage('E2E Tests') {
             steps {
-                echo 'Hello World'
-            }
-        }
-          stage('Hello') {
-            steps {
-                echo 'Hello World'
-            }
-        }
-          stage('Hello') {
-            steps {
-                echo 'Hello World'
+                sh 'npx playwright test'
             }
         }
     }
